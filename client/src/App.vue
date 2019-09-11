@@ -1,20 +1,12 @@
 <template>
   <div id="app">
-    <img alt="Imagen de pikachu saludando" src="./assets/helloPikachu.png">
-    <PokemonList/>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/create">About</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
-
-<script>
-import PokemonList from './components/PokemonList'
-
-export default {
-  name: 'app',
-  components: {
-    PokemonList
-  },
-}
-</script>
 
 <style>
 #app {

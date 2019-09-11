@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <img src="../assets/helloPikachu.png" alt="Pikachu"/>
     <h1>Bienvenidos al Accesible mundo de Pokemon</h1>
   </div>
 </template>
@@ -13,13 +14,17 @@ export default {
     
   },
   mounted() {
+    // eslint-disable-next-line
     console.log('created')
     axios.get(`http://localhost:5000/pokemon`)
     .then(res => {
+      // eslint-disable-next-line
       console.log(res)
+      // eslint-disable-next-line
       console.log("hello")
     })
     .catch(e => {
+      // eslint-disable-next-line
       console.log(e)
     })
   }
