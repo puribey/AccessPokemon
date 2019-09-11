@@ -2,26 +2,30 @@
   <div class="hello">
     <img src="../assets/helloPikachu.png" alt="Pikachu"/>
     <h1>Bienvenidos al Accesible mundo de Pokemon</h1>
+    <div v-for="pokemon in pokemons" :key="pokemon.id">
+    <PokemonInfo :data="pokemon"/>
+  </div>
   </div>
 </template>
 
 <script>
+import PokemonInfo from '../components/PokemonInfo'
 import axios from 'axios'
 
 export default {
   name: 'PokemonList',
   components: {
-    
+    PokemonInfo
+  },
+  data() {
+    return {
+      pokemons: []
+    };
   },
   mounted() {
-    // eslint-disable-next-line
-    console.log('created')
     axios.get(`http://localhost:5000/pokemon`)
     .then(res => {
-      // eslint-disable-next-line
-      console.log(res)
-      // eslint-disable-next-line
-      console.log("hello")
+      this.pokemons = res.data
     })
     .catch(e => {
       // eslint-disable-next-line

@@ -6,7 +6,7 @@ const Pokemon = require("../models/Pokemon");
 router.get("/", (req, res) =>
   Pokemon.findAll()
     .then(pokemon => {
-      console.log(pokemon);
+      res.send(pokemon)
     })
     .catch(err => console.log(err))
 );
@@ -36,19 +36,19 @@ router.post("/add", (req, res) => {
       type,
       imageUrl
     })
-      .then(pokemon => console.log(pokemon))
+      .then(pokemon => res.send(pokemon))
       .catch(err => console.log(err));
   // }
 });
 
 // Delete a pokemon
 router.post("/delete/:id", (req, res) => {
-  Gig.destroy({
+  Pokemon.destroy({
     where: {
       id: req.params.id
     }
   })
-    .then(pokemon => console.log(pokemon))
+    .then(pokemon => res.send(pokemon))
     .catch(err => console.log(err));
 });
 

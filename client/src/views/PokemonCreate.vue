@@ -66,10 +66,6 @@ export default {
       imageUrl: ""
     };
   },
-  mounted() {
-    // eslint-disable-next-line
-    console.log("mounted");
-  },
   methods: {
     createPokemon() {
       const formData = {
@@ -82,8 +78,6 @@ export default {
     .then(res => {
       // eslint-disable-next-line
       console.log(res)
-      // eslint-disable-next-line
-      console.log("hello")
     })
     .catch(e => {
       // eslint-disable-next-line
