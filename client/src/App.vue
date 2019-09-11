@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/helloPikachu.png">
+    <img alt="Imagen de pikachu saludando" src="./assets/helloPikachu.png">
     <PokemonList/>
   </div>
 </template>
