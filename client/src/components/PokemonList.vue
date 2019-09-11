@@ -5,9 +5,23 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'PokemonList',
-  props: {
+  components: {
+    
+  },
+  mounted() {
+    console.log('created')
+    axios.get(`http://localhost:5000/pokemon`)
+    .then(res => {
+      console.log(res)
+      console.log("hello")
+    })
+    .catch(e => {
+      console.log(e)
+    })
   }
 }
 </script>
