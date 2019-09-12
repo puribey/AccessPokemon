@@ -13,8 +13,8 @@ export default new Router({
       component: PokemonList
     },
     {
-      path: "/create",
-      name: "create",
+      path: "/add",
+      name: "add",
       component: PokemonCreate
     }
   ]

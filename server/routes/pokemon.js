@@ -48,7 +48,7 @@ router.post("/delete/:id", (req, res) => {
       id: req.params.id
     }
   })
-    .then(pokemon => res.send(pokemon))
+    .then(pokemon => res.sendStatus(200))
     .catch(err => console.log(err));
 });
 

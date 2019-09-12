@@ -1,55 +1,57 @@
 <template>
-  <form @submit.prevent="createPokemon">
-    <div class="input-group">
-      <label for="name">Please add a pokemon name</label>
-      <input
-        type="text"
-        name="name"
-        id="name"
-        class="input-box"
-        placeholder="Pokemon name"
-        maxlength="100"
-        v-model="name"
-      />
-    </div>
-    <div class="input-group">
-      <label for="description">How is this pokemon?</label>
-      <input
-        type="text"
-        name="description"
-        id="description"
-        class="input-box"
-        placeholder="Pokemon description"
-        maxlength="100"
-        v-model="description"
-      />
-    </div>
-    <div class="input-group">
-      <label for="type">What type is it?</label>
-      <input
-        type="text"
-        name="type"
-        id="type"
-        class="input-box"
-        placeholder="Pokemon type"
-        maxlength="100"
-        v-model="type"
-      />
-    </div>
-    <div class="input-group">
-      <label for="imageUrl">Show us a picture</label>
-      <input
-        type="text"
-        name="imageUrl"
-        id="imageUrl"
-        class="input-box"
-        placeholder="Pokemon image"
-        maxlength="100"
-        v-model="imageUrl"
-      />
-    </div>
-    <button type="submit">Submit</button>
-  </form>
+  <main class="container">
+    <h1>Agregar un pokemon a mi colección</h1>
+    <article class="form-card-container">
+      <form @submit.prevent="createPokemon">
+        <div class="input-group-left">
+          <label for="name">Nombre del Pokemon</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="input-box"
+            placeholder="Nombre"
+            maxlength="100"
+            v-model="name"
+          />
+
+
+          <label for="type">De que tipo es?</label>
+          <input
+            type="text"
+            name="type"
+            id="type"
+            class="input-box"
+            placeholder="Ej. Agua"
+            maxlength="100"
+            v-model="type"
+          />
+          <label for="imageUrl">Url de su imagen</label>
+          <input
+            type="text"
+            name="imageUrl"
+            id="imageUrl"
+            class="input-box"
+            placeholder="url"
+            maxlength="100"
+            v-model="imageUrl"
+          />
+        <button type="submit" class="secondary-btn">Agregar</button>
+        </div>
+        <div class="input-group-right">
+          <label for="description">Cómo es el pokemon?</label>
+          <textarea
+            type="text"
+            name="description"
+            id="description"
+            class="input-box"
+            placeholder="Descripción..."
+            v-model="description"
+          />
+        </div>
+      </form>
+    </article>
+  </main>
 </template>
 
 <script>
@@ -74,19 +76,48 @@ export default {
         type: this.type,
         imageUrl: this.imageUrl
       };
-      axios.post(`http://localhost:5000/pokemon/add`, formData)
-    .then(res => {
-      // eslint-disable-next-line
-      console.log(res)
-    })
-    .catch(e => {
-      // eslint-disable-next-line
-      console.log(e)
-    })
+      axios
+        .post(`http://localhost:5000/pokemon/add`, formData)
+        .then(res => {
+          this.$router.push("/");
+        })
+        .catch(e => {
+          // eslint-disable-next-line
+          console.log(e);
+        });
     }
   }
 };
 </script>
 
 <style scoped>
+.form-card-container {
+  background-color: #f3f9f9;
+  border-radius: 5px;
+  padding: 20px;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.form-card-container input, .form-card-container textarea {
+  width: 100%;
+}
+.form-card-container button {
+  width: 100%;
+  margin-top: 20px;
+}
+form {
+  display: flex;
+  text-align: left;
+}
+.input-group-left {
+  width: 50%;
+  padding-right: 20px;
+}
+.input-group-right {
+  width: 50%;
+}
+.input-group-right textarea{
+  min-height: 90%;
+}
 </style>

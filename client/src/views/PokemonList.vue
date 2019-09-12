@@ -1,19 +1,23 @@
 <template>
-  <div class="hello">
-    <img src="../assets/helloPikachu.png" alt="Pikachu"/>
-    <h1>Bienvenidos al Accesible mundo de Pokemon</h1>
-    <div v-for="pokemon in pokemons" :key="pokemon.id">
-    <PokemonInfo :data="pokemon"/>
-  </div>
-  </div>
+  <main class="container">
+    <!-- <img src="../assets/helloPikachu.png" alt="Pikachu" class="pikachu-img"/> -->
+    <h1>Mi accesible colección de pokemon</h1>
+    <article class="pokemon-list-wrapper">
+      <div :v-if="pokemons.length > 0" v-for="pokemon in pokemons" :key="pokemon.id">
+        <PokemonInfo :data="pokemon" />
+        
+      </div>
+      <div v-if="pokemons.length === 0" class="no-pokemon-card">No hay pokemones en tu colección</div>
+    </article>
+  </main>
 </template>
 
 <script>
-import PokemonInfo from '../components/PokemonInfo'
-import axios from 'axios'
+import PokemonInfo from "../components/PokemonInfo";
+import axios from "axios";
 
 export default {
-  name: 'PokemonList',
+  name: "PokemonList",
   components: {
     PokemonInfo
   },
@@ -23,16 +27,18 @@ export default {
     };
   },
   mounted() {
-    axios.get(`http://localhost:5000/pokemon`)
-    .then(res => {
-      this.pokemons = res.data
-    })
-    .catch(e => {
-      // eslint-disable-next-line
-      console.log(e)
-    })
+    axios
+      .get(`http://localhost:5000/pokemon`)
+      .then(res => {
+        this.pokemons = res.data;
+        console.log(res.data.length)
+      })
+      .catch(e => {
+        // eslint-disable-next-line
+        console.log(e);
+      });
   }
-}
+};
 </script>
 
 <style scoped>
@@ -49,5 +55,25 @@ li {
 }
 a {
   color: #42b983;
+}
+.pikachu-img {
+  width: 200px;
+}
+.pokemon-list-wrapper {
+  width: 80%;
+  margin: 0 auto;
+  height: 80vh;
+  overflow-y: scroll;
+      padding: 20px;
+    border-radius: 5px;
+}
+.no-pokemon-card {
+  background-color: #f3f9f9;
+  height: 50px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
