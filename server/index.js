@@ -20,5 +20,5 @@ app.use(cors());
 // Get routes from /pokemon
 app.use('/pokemon', require('./routes/pokemon'));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5050;
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
