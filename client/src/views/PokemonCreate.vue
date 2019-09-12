@@ -15,7 +15,6 @@
             v-model="name"
           />
 
-
           <label for="type">De que tipo es?</label>
           <input
             type="text"
@@ -36,7 +35,7 @@
             maxlength="100"
             v-model="imageUrl"
           />
-        <button type="submit" class="secondary-btn">Agregar</button>
+          <button type="submit" class="secondary-btn">Agregar</button>
         </div>
         <div class="input-group-right">
           <label for="description">Cómo es el pokemon?</label>
@@ -95,11 +94,13 @@ export default {
   background-color: #f3f9f9;
   border-radius: 5px;
   padding: 20px;
-  width: 80%;
+  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
   margin-top: 20px;
 }
-.form-card-container input, .form-card-container textarea {
+.form-card-container input,
+.form-card-container textarea {
   width: 100%;
 }
 .form-card-container button {
@@ -117,7 +118,7 @@ form {
 .input-group-right {
   width: 50%;
 }
-.input-group-right textarea{
+.input-group-right textarea {
   min-height: 90%;
 }
 </style>

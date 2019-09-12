@@ -5,7 +5,6 @@
     <article class="pokemon-list-wrapper">
       <div :v-if="pokemons.length > 0" v-for="pokemon in pokemons" :key="pokemon.id">
         <PokemonInfo :data="pokemon" />
-        
       </div>
       <div v-if="pokemons.length === 0" class="no-pokemon-card">No hay pokemones en tu colección</div>
     </article>
@@ -31,7 +30,7 @@ export default {
       .get(`http://localhost:5000/pokemon`)
       .then(res => {
         this.pokemons = res.data;
-        console.log(res.data.length)
+        console.log(res.data.length);
       })
       .catch(e => {
         // eslint-disable-next-line
@@ -60,12 +59,13 @@ a {
   width: 200px;
 }
 .pokemon-list-wrapper {
-  width: 80%;
+  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
   height: 80vh;
   overflow-y: scroll;
-      padding: 20px;
-    border-radius: 5px;
+  padding: 20px;
+  border-radius: 5px;
 }
 .no-pokemon-card {
   background-color: #f3f9f9;

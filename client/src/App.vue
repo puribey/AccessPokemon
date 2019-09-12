@@ -6,7 +6,7 @@
     </nav>
     <router-view />
     <footer>
-      <p>Hecho con &hearts; a Vue x PuriBey</p>
+      <p>Hecho con &hearts; x @Puribey</p>
     </footer>
   </div>
 </template>
