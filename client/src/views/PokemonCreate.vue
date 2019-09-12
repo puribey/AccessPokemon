@@ -1,8 +1,10 @@
 <template>
   <main class="container">
-    <h1>Agregar un pokemon a mi colección</h1>
+    <header>
+      <h1 v-tab:6>Agregar un pokemon a mi colección</h1>
+    </header>
     <article class="form-card-container">
-      <form @submit.prevent="createPokemon">
+      <form @submit.prevent="onCreatePokemon">
         <div class="input-group-left">
           <label for="name">Nombre del Pokemon</label>
           <input
@@ -11,8 +13,10 @@
             id="name"
             class="input-box"
             placeholder="Nombre"
+            aria-placeholder="Nombre"
             maxlength="100"
             v-model="name"
+            v-tab:5
           />
 
           <label for="type">De que tipo es?</label>
@@ -22,8 +26,10 @@
             id="type"
             class="input-box"
             placeholder="Ej. Agua"
+            aria-placeholder="Ej. Agua"
             maxlength="100"
             v-model="type"
+            v-tab:4
           />
           <label for="imageUrl">Url de su imagen</label>
           <input
@@ -31,11 +37,19 @@
             name="imageUrl"
             id="imageUrl"
             class="input-box"
-            placeholder="url"
+            placeholder="Pegar la url aquí"
+            aria-placeholder="Pegar la url aquí"
             maxlength="100"
             v-model="imageUrl"
+            v-tab:3
           />
-          <button type="submit" class="secondary-btn">Agregar</button>
+          <button
+            @keydown.enter="onCreatePokemon"
+            type="submit"
+            class="secondary-btn"
+            aria-label="Este boton sirve para agregar un pokemon a la lista"
+            v-tab:1
+          >Agregar</button>
         </div>
         <div class="input-group-right">
           <label for="description">Cómo es el pokemon?</label>
@@ -45,7 +59,9 @@
             id="description"
             class="input-box"
             placeholder="Descripción..."
+            aria-placeholder="Pegar la url aquí"
             v-model="description"
+            v-tab:2
           />
         </div>
       </form>
@@ -68,7 +84,7 @@ export default {
     };
   },
   methods: {
-    createPokemon() {
+    onCreatePokemon() {
       const formData = {
         name: this.name,
         description: this.description,
