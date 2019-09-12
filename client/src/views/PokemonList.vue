@@ -1,10 +1,11 @@
 <template>
   <main class="container">
-    <!-- <img src="../assets/helloPikachu.png" alt="Pikachu" class="pikachu-img"/> -->
-    <h1>Mi accesible colección de pokemon</h1>
-    <article class="pokemon-list-wrapper">
+    <header>
+      <h1 v-tab:1>Mi accesible colección de pokemon</h1>
+    </header>
+    <article class="pokemon-list-wrapper" v-focus>
       <div :v-if="pokemons.length > 0" v-for="pokemon in pokemons" :key="pokemon.id">
-        <PokemonInfo :data="pokemon" />
+        <PokemonInfo v-focus :data="pokemon" />
       </div>
       <div v-if="pokemons.length === 0" class="no-pokemon-card">No hay pokemones en tu colección</div>
     </article>

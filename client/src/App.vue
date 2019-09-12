@@ -5,7 +5,7 @@
       <router-link to="/add" class="secondary-btn">+ Pokemon</router-link>
     </nav>
     <router-view />
-    <footer>
+    <footer aria-label="Footer">
       <p>Hecho con &hearts; x @Puribey</p>
     </footer>
   </div>

@@ -1,6 +1,8 @@
 <template>
   <main class="container">
-    <h1>Agregar un pokemon a mi colección</h1>
+    <header>
+      <h1 v-tab>Agregar un pokemon a mi colección</h1>
+    </header>
     <article class="form-card-container">
       <form @submit.prevent="createPokemon">
         <div class="input-group-left">
@@ -11,6 +13,7 @@
             id="name"
             class="input-box"
             placeholder="Nombre"
+            aria-placeholder="Nombre"
             maxlength="100"
             v-model="name"
           />
@@ -22,6 +25,7 @@
             id="type"
             class="input-box"
             placeholder="Ej. Agua"
+            aria-placeholder="Ej. Agua"
             maxlength="100"
             v-model="type"
           />
@@ -31,11 +35,17 @@
             name="imageUrl"
             id="imageUrl"
             class="input-box"
-            placeholder="url"
+            placeholder="Pegar la url aquí"
+            aria-placeholder="Pegar la url aquí"
             maxlength="100"
             v-model="imageUrl"
           />
-          <button type="submit" class="secondary-btn">Agregar</button>
+          <button
+            :aria-pressed="pokemonSuccess"
+            type="submit"
+            class="secondary-btn"
+            aria-label="Este boton sirve para agregar un pokemon a la lista"
+          >Agregar</button>
         </div>
         <div class="input-group-right">
           <label for="description">Cómo es el pokemon?</label>
@@ -45,6 +55,7 @@
             id="description"
             class="input-box"
             placeholder="Descripción..."
+            aria-placeholder="Pegar la url aquí"
             v-model="description"
           />
         </div>
@@ -64,7 +75,8 @@ export default {
       name: "",
       description: "",
       type: "",
-      imageUrl: ""
+      imageUrl: "",
+      pokemonSuccess: false
     };
   },
   methods: {
@@ -78,6 +90,7 @@ export default {
       axios
         .post(`http://localhost:5000/pokemon/add`, formData)
         .then(res => {
+          this.pokemonSuccess = !this.pokemonSuccess;
           this.$router.push("/");
         })
         .catch(e => {

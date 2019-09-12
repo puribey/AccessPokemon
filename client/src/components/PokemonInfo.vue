@@ -1,21 +1,23 @@
 <template>
-  <div class="pokemon-card">
+  <div class="pokemon-card" :aria-label="'Carta de detalle de ' + data.name" v-tab>
     <div class="pokemon-card-flex">
-      <div class="pokemon-card-img" :style="{backgroundImage: `url(${data.imageUrl})`}"></div>
+      <div class="pokemon-card-img" :style="{backgroundImage: `url(${data.imageUrl})`}" role="img" :aria-label="'Imagen del pokemon' + data.name" v-tab></div>
       <div class="pokemon-card-info">
         <p class="pokemon-card-name">{{data.name}}</p>
-        <p>{{data.description}}</p>
-        <p>
+        <p v-tab>{{data.description}}</p>
+        <p v-tab>
           <span>Tipo:</span>
           {{data.type}}
         </p>
-        <button @click="onDeletePokemon" class="secondary-btn">Sacar de la lista</button>
+        <button role="button" @click="onDeletePokemon" @keydown="onDeletePokemon" class="secondary-btn" :aria-label="'Este boton srive para borrar a ' + data.name + ' de la base de datos'">Sacar de la lista</button>
       </div>
     </div>
   </div>
+  
 </template>
 
 <script>
+
 import axios from "axios";
 export default {
   name: "PokemonList",
@@ -44,6 +46,8 @@ export default {
   }
 };
 </script>
+
+
 
 <style scoped>
 .pokemon-card {
