@@ -1,13 +1,13 @@
 <template>
   <main class="container">
     <header>
-      <h1 v-tab:1>Mi accesible colección de pokemon</h1>
+      <h1 v-tab:10>Mi accesible colección de pokemon</h1>
     </header>
     <article class="pokemon-list-wrapper" v-focus>
-      <div :v-if="pokemons.length > 0" v-for="pokemon in pokemons" :key="pokemon.id">
-        <PokemonInfo v-focus :data="pokemon" />
+      <div :v-if="pokemons.length > 0" v-for="(pokemon,index) in pokemons" :key="pokemon.id">
+        <PokemonInfo v-focus :data="pokemon" :indexNum="index"/>
       </div>
-      <div v-if="pokemons.length === 0" class="no-pokemon-card">No hay pokemones en tu colección</div>
+      <div v-if="pokemons.length === 0" class="no-pokemon-card" v-tab:8>No hay pokemones en tu colección</div>
     </article>
   </main>
 </template>
@@ -31,7 +31,6 @@ export default {
       .get(`http://localhost:5000/pokemon`)
       .then(res => {
         this.pokemons = res.data;
-        console.log(res.data.length);
       })
       .catch(e => {
         // eslint-disable-next-line

@@ -4,11 +4,9 @@ import router from "./router";
 
 Vue.config.productionTip = false;
 
-Vue.directive("tab", function(el, binding) {
-  // eslint-disable-next-line
-  console.log(binding.arg);
-  el.tabIndex = !binding ? 0 : binding.arg;
-});
+Vue.directive("tab",{ bind: function (el, binding, vnode) {
+    el.tabIndex = !binding ? "0" : binding.arg.toString();
+}});
 
 Vue.directive("focus", {
   inserted: function(el) {
