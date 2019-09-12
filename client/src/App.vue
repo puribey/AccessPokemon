@@ -5,7 +5,7 @@
       <router-link to="/add" class="secondary-btn">+ Pokemon</router-link>
     </nav>
     <router-view />
-    <footer>
+    <footer aria-label="Footer">
       <p>Hecho con &hearts; x @Puribey</p>
     </footer>
   </div>
@@ -43,27 +43,27 @@ nav a, button {
   transition: all 0.3s;
 }
 .primary-btn {
-  color: #6993f3;
+  color:#285bd0;
   background-color: #ffffff;
-  border: 1px solid #6993f3;
+  border: 1px solid#285bd0;
   margin-right: 10px;
 }
 
 .primary-btn:hover {
   color: #ffffff;
-  background-color: #6993f3;
-  border: 1px solid #6993f3;
+  background-color:#285bd0;
+  border: 1px solid#285bd0;
 }
 .secondary-btn {
   color: #ffffff;
-  background-color: #6993f3;
-  border: 1px solid #6993f3;
+  background-color:#285bd0;
+  border: 1px solid#285bd0;
 }
 
 .secondary-btn:hover {
-  color: #6993f3;
+  color:#285bd0;
   background-color: #ffffff;
-  border: 1px solid #6993f3;
+  border: 1px solid#285bd0;
 }
 
 .container {
@@ -78,7 +78,7 @@ label {
 
 input, textarea {
   display: block;
-  border: 1px solid #6993f3;
+  border: 1px solid#285bd0;
   padding: 10px;
   border-radius: 5px;
   font-size: 16px;
