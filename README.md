@@ -1,5 +1,6 @@
 # AccessPokemon
-This project was created with to show some accessibility features. It was use only for educational purposes in a meetup called [vuenos aires](http://vuenosair.es/)
+This project was created to show some accessibility features in a meetup called [vuenos aires](http://vuenosair.es/)
+You can find the slides to this meetup talk in [this link](https://docs.google.com/presentation/d/1phv3JSlpdMuLKB5ne9H9lOcliJC41sRPlZr-vYHEuN4/edit?usp=sharing)
 
 ## Stack
 - Node express
