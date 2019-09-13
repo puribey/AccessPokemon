@@ -4,7 +4,7 @@ import router from "./router";
 
 Vue.config.productionTip = false;
 
-Vue.directive("tab",{ bind: function (el, binding, vnode) {
+Vue.directive("tab",{ bind: function (el, binding) {
     el.tabIndex = !binding ? "0" : binding.arg.toString();
 }});
 

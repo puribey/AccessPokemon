@@ -14,22 +14,6 @@ router.get("/", (req, res) =>
 // Add a pokemon
 router.post("/add", (req, res) => {
   let { name, description, type, imageUrl } = req.body;
-
-  // Validate fields e.g.
-  // let errors = [];
-  // if (!name || !description || !type || !imageUrl) {
-  //   errors.push({ text: "Please complete all fields" });
-  // }
-  // if (errors.length > 0) {
-  //   res.render("add", {
-  //     errors,
-  //     name,
-  //     description,
-  //     type,
-  //     imageUrl
-  //   });
-  // } else {
-    // Insert into table
     Pokemon.create({
       name,
       description,
@@ -38,7 +22,6 @@ router.post("/add", (req, res) => {
     })
       .then(pokemon => res.send(pokemon))
       .catch(err => console.log(err));
-  // }
 });
 
 // Delete a pokemon
